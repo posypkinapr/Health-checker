@@ -1,0 +1,23 @@
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QPushButton, QHBoxLayout, QVBoxLayout
+app = QApplication([])
+window = QWidget()
+window.setWindowTitle('Здоровье')
+window.resize(300, 500)
+greetings= QLabel('Добро пожаловать в программу по определению состояния здоровья!')
+description = QLabel(' Тест Руфье является простым и быстрым способом\n оценки физической выносливости и сердечно-сосудистой системы.\n Результаты теста могут быть использованы для \n оценки общего уровня физической формы человека.')
+start = QPushButton('Начать')
+h_layout_1 = QHBoxLayout()
+h_layout_2 = QHBoxLayout()
+h_layout_3 = QHBoxLayout()
+v_layout = QVBoxLayout()
+
+h_layout_1.addWidget(greetings)
+h_layout_2.addWidget(description)
+h_layout_3.addWidget(start)
+v_layout.addLayout(h_layout_1)
+v_layout.addLayout(h_layout_2)
+v_layout.addLayout(h_layout_3)
+window.setLayout(v_layout)
+window.show()
+app.exec_()
