@@ -1,23 +1,39 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QPushButton, QHBoxLayout, QVBoxLayout
-app = QApplication([])
-window = QWidget()
-window.setWindowTitle('Здоровье')
-window.resize(300, 500)
-greetings= QLabel('Добро пожаловать в программу по определению состояния здоровья!')
-description = QLabel(' Тест Руфье является простым и быстрым способом\n оценки физической выносливости и сердечно-сосудистой системы.\n Результаты теста могут быть использованы для \n оценки общего уровня физической формы человека.')
-start = QPushButton('Начать')
-h_layout_1 = QHBoxLayout()
-h_layout_2 = QHBoxLayout()
-h_layout_3 = QHBoxLayout()
-v_layout = QVBoxLayout()
+import constants
+import test_1
+class MainWindow(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.init_Ui()
+        self.set_appear()
+        self.show()
+        self.connection()
+    def init_Ui(self):
+        self.greetings= QLabel(constants.greetings)
+        self.description = QLabel(constants.description)
+        self.start = QPushButton(constants.start_text)
+        self.h_layout_1 = QHBoxLayout()
+        self.h_layout_2 = QHBoxLayout()
+        self.h_layout_3 = QHBoxLayout()
+        self.v_layout = QVBoxLayout()
 
-h_layout_1.addWidget(greetings)
-h_layout_2.addWidget(description)
-h_layout_3.addWidget(start)
-v_layout.addLayout(h_layout_1)
-v_layout.addLayout(h_layout_2)
-v_layout.addLayout(h_layout_3)
-window.setLayout(v_layout)
-window.show()
+        self.h_layout_1.addWidget(self.greetings)
+        self.h_layout_2.addWidget(self.description)
+        self.h_layout_3.addWidget(self.start)
+        self.v_layout.addLayout(self.h_layout_1)
+        self.v_layout.addLayout(self.h_layout_2)
+        self.v_layout.addLayout(self.h_layout_3)
+        self.setLayout(self.v_layout)
+    def set_appear(self):
+        self.setWindowTitle(constants.title)
+        x, y =constants.window_1_size
+        self.resize(x, y) 
+    def connection(self):
+        self.start.clicked.connect(self.next_click)
+    def next_click(self):
+        self.t_1 = test_1.Test1()
+        self.hide()
+app = QApplication([])
+main_w = MainWindow()    
 app.exec_()
