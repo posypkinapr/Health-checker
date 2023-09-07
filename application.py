@@ -1,7 +1,7 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QPushButton, QHBoxLayout, QVBoxLayout
 import constants
-import test_1
+import description_1 
 class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
@@ -32,8 +32,9 @@ class MainWindow(QWidget):
     def connection(self):
         self.start.clicked.connect(self.next_click)
     def next_click(self):
-        self.t_1 = test_1.Test1()
+        self.d_1 = description_1.Description1()
         self.hide()
+        
 app = QApplication([])
 main_w = MainWindow()    
 app.exec_()
