@@ -1,5 +1,5 @@
 from PyQt5.QtCore import QTime, QTimer
-from PyQt5.QtWidgets import QLabel, QWidget, QPushButton, QHBoxLayout, QVBoxLayout
+from PyQt5.QtWidgets import QLabel, QWidget, QPushButton, QHBoxLayout, QVBoxLayout, QLineEdit
 
 import constants
 import description_3
@@ -13,20 +13,28 @@ class Test2(QWidget):
         self.show()
 
     def init_ui(self):
-        self.timer_label2 = QLabel(constants.timer_2)
+        self.timer_label2 = QLabel(constants.timer)
         self.timer_text2 = QLabel(constants.txt_timer_2)
+
+        self.pusle_count = QLineEdit()
+        self.pusle_count.setEnabled(False)
 
         self.start_button2 = QPushButton(constants.button_1)
 
-        self.next_button2 = QPushButton(constants.next_button_1)
+        self.next_button2 = QPushButton(constants.next_button1)
         self.next_button2.setEnabled(False)
 
+        self.h_layout = QHBoxLayout()
         self.v_layout = QVBoxLayout()
-        
-        self.v_layout.addWidget(self.text_timer_2)
-        self.v_layout.addWidget(self.description)
-        self.v_layout.addWidget(self.start_button)
-        self.v_layout.addWidget(self.next_button)
+
+        self.h_layout.addWidget(self.timer_label2)
+        self.h_layout.addWidget(self.timer_text2)
+
+        self.v_layout.addLayout(self.h_layout)
+        self.v_layout.addWidget(self.pusle_count)
+        self.v_layout.addSpacing(40)
+        self.v_layout.addWidget(self.start_button2)
+        self.v_layout.addWidget(self.next_button2)
         self.setLayout(self.v_layout)
 
     def timer_test_2(self):
@@ -40,11 +48,12 @@ class Test2(QWidget):
         global time_2
 
         time_2 = time_2.addSecs(-1)
-        self.text_timer_2.setText(time_2.toString('hh:mm:ss'))
+        self.timer_text2.setText(time_2.toString('hh:mm:ss'))
 
         if time_2.toString('hh:mm:ss') == '00:00:00':
             self.timer.stop()
-            self.next_button.setEnabled(True)
+            self.pusle_count.setEnabled(True)
+            self.next_button2.setEnabled(True)
 
     def set_appear(self):
         self.setWindowTitle(constants.title_2)
@@ -52,8 +61,8 @@ class Test2(QWidget):
         self.resize(x, y)
 
     def connection(self):
-        self.next_button.clicked.connect(self.next_click)
-        self.start_button.clicked.connect(self.timer_test_2)
+        self.next_button2.clicked.connect(self.next_click)
+        self.start_button2.clicked.connect(self.timer_test_2)
 
     def next_click(self):
         self.d_3 = description_3.Description3()

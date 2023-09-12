@@ -18,7 +18,7 @@ time_2 = QTime(0, 0, 45)
 txt_timer_2 = time_2.toString("hh:mm:ss")
 
 description_1 = 'Вам нужно лечь на спину и измерить пульс в течение 15 секунд'
-timer_1 = 'Таймер:'
+timer = 'Таймер:'
 button_1 = 'Старт!'
 next_button1 = 'Далее'
 title_1 = 'Тест 1'

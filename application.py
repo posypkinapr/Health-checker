@@ -7,12 +7,12 @@ import description_1
 class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
-        self.init_Ui()
+        self.init_ui()
         self.set_appear()
         self.show()
         self.connection()
 
-    def init_Ui(self):
+    def init_ui(self):
         font = QFont()
         font.setBold(True)
         self.greetings = QLabel(constants.greetings)
