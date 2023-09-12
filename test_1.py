@@ -1,17 +1,18 @@
 from PyQt5.QtCore import QTimer, QTime 
 from PyQt5.QtWidgets import QLabel, QWidget, QPushButton, QHBoxLayout, QVBoxLayout
+
 import constants
 import description_2
 
 class Test1(QWidget):
     def __init__(self):
         super().__init__()
-        self.init_Ui()
+        self.init_ui()
         self.set_appear()
         self.show()
         self.connection()
 
-    def init_Ui(self):
+    def init_ui(self):
         self.timer_label1 = QLabel(constants.timer_1)
         self.timer_text1 = QLabel(constants.txt_timer_1)
 
@@ -27,7 +28,6 @@ class Test1(QWidget):
         self.h_layout.addWidget(self.timer_text1)
 
         self.v_layout.addLayout(self.h_layout)
-        #self.v_layout.addWidget(self.description)
         self.v_layout.addWidget(self.start_button1)
         self.v_layout.addWidget(self.next_button1)
         self.setLayout(self.v_layout)

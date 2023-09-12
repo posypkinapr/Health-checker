@@ -5,12 +5,12 @@ import test_3
 class Description3(QWidget):
     def __init__(self):
         super().__init__()
-        self.init_Ui()
+        self.init_ui()
         self.set_appear()
         self.show()
         self.connection()
 
-    def init_Ui(self):
+    def init_ui(self):
         self.description = QLabel(constants.description_3)
         self.next_button = QPushButton(constants.next_button_1)
         self.v_layout = QVBoxLayout()
