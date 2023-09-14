@@ -17,6 +17,9 @@ txt_timer_1 = time_1.toString("hh:mm:ss")
 time_2 = QTime(0, 0, 45)
 txt_timer_2 = time_2.toString("hh:mm:ss")
 
+time_3 = QTime(0, 1, 00)
+txt_timer_3 = time_3.toString("hh:mm:ss")
+
 description_1 = 'Вам нужно лечь на спину и измерить пульс в течение 15 секунд'
 timer = 'Таймер:'
 button_1 = 'Старт!'
