@@ -12,7 +12,7 @@ class Description3(QWidget):
 
     def init_ui(self):
         self.description = QLabel(constants.description_3)
-        self.next_button = QPushButton(constants.next_button_1)
+        self.next_button = QPushButton(constants.next_button1)
         self.v_layout = QVBoxLayout()
         self.v_layout.addWidget(self.description)
         self.v_layout.addWidget(self.next_button)
