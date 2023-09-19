@@ -65,6 +65,10 @@ class Test3(QWidget):
         self.setWindowTitle(constants.title_3)
         x, y = constants.window_1_size
         self.resize(x, y)
+    @staticmethod
+    def return_count(self):
+        count_pulse = self.pulse_count.text()
+        return count_pulse
         
     def connection(self):
         self.next_button3.clicked.connect(self.next_click)

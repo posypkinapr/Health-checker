@@ -59,6 +59,10 @@ class Test1(QWidget):
         x, y = constants.window_1_size
         self.resize(x, y)
 
+    def return_count(self):
+        count_pulse = self.pulse_count.text()
+        return count_pulse
+
     def connection(self):
         self.next_button1.clicked.connect(self.next_click)
         self.start_button1.clicked.connect(self.timer_test_1)

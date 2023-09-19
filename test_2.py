@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import QLabel, QWidget, QPushButton, QHBoxLayout, QVBoxLayo
 import constants
 import description_3
 
+
 class Test2(QWidget):
     def __init__(self):
         super().__init__()
@@ -59,6 +60,10 @@ class Test2(QWidget):
         self.setWindowTitle(constants.title_2)
         x, y = constants.window_1_size
         self.resize(x, y)
+
+    def return_count(self):
+        count_pulse = self.pulse_count.text()
+        return count_pulse
 
     def connection(self):
         self.next_button2.clicked.connect(self.next_click)
