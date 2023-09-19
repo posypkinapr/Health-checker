@@ -4,6 +4,7 @@ from PyQt5.QtGui import QFont
 import constants
 import description_1
 
+
 class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
@@ -39,15 +40,16 @@ class MainWindow(QWidget):
     def set_appear(self):
         self.setWindowTitle(constants.title)
         x, y = constants.window_1_size
-        self.resize(x, y) 
-    
+        self.resize(x, y)
+
     def connection(self):
         self.start.clicked.connect(self.next_click)
 
     def next_click(self):
         self.d_1 = description_1.Description1()
         self.hide()
-        
+
+
 app = QApplication([])
-main_w = MainWindow()    
+main_w = MainWindow()
 app.exec_()
