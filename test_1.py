@@ -1,8 +1,9 @@
-from PyQt5.QtCore import QTimer, QTime 
+from PyQt5.QtCore import QTimer, QTime
 from PyQt5.QtWidgets import QLabel, QWidget, QPushButton, QHBoxLayout, QVBoxLayout, QLineEdit
 
 import constants
 import description_2
+
 
 class Test1(QWidget):
     def __init__(self):
@@ -26,7 +27,7 @@ class Test1(QWidget):
 
         self.h_layout = QHBoxLayout()
         self.v_layout = QVBoxLayout()
-        
+
         self.h_layout.addWidget(self.timer_label1)
         self.h_layout.addWidget(self.timer_text1)
 
@@ -59,14 +60,17 @@ class Test1(QWidget):
         x, y = constants.window_1_size
         self.resize(x, y)
 
-    def return_count(self):
-        count_pulse = self.pulse_count.text()
-        return count_pulse
+    # def return_count(self):
+    #     count_pulse = self.pulse_count.text()
+    #     return count_pulse
 
     def connection(self):
         self.next_button1.clicked.connect(self.next_click)
         self.start_button1.clicked.connect(self.timer_test_1)
 
     def next_click(self):
+        file = open('results.txt', 'w')
+        file.write(self.pulse_count.text() + '\n')
+        file.close()
         self.d_2 = description_2.Description2()
         self.hide()
